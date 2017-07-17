@@ -19,7 +19,7 @@ describe "user authentication" do
       within('#new_user_form') do
         expect(page).to have_content 'Email'
         expect(page).to have_content 'Password'
-        expect(page).to have_content 'Password Confirmation'
+        expect(page).to have_content 'Password confirmation'
       end
 
     end
