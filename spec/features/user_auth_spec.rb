@@ -79,5 +79,16 @@ describe "user authentication" do
         expect(page).to have_button 'Log In'
       end
     end
+
+    it "after loging in user is directed to link index" do
+      user = FactoryGirl.create(:user)
+
+      visit root_path
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      click_on 'Log In'
+
+      expect(current_path).to eq root_path
+    end
   end
 end
