@@ -68,4 +68,16 @@ describe "user authentication" do
       expect(page).to have_content "Password can't be blank"
     end
   end
+
+  context "as a registered user, I am able to login" do
+    it "shows a form for filling in email and password" do
+      visit root_path
+
+      within('#login') do
+        expect(page).to have_content 'Email'
+        expect(page).to have_content 'Password'
+        expect(page).to have_button 'Log In'
+      end
+    end
+  end
 end
