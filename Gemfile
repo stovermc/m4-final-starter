@@ -35,6 +35,7 @@ group :development, :test do
   gem 'database_cleaner'
   gem 'better_errors'
   gem 'factory_girl_rails'
-  gem 'shoulda-matchers'
+  gem 'shoulda-callback-matchers', '~> 1.1.1'
+  gem 'shoulda-matchers', '~> 3.1'
   gem 'selenium-webdriver', '~> 2.53.4'
 end

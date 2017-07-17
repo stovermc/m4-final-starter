@@ -17,7 +17,6 @@ describe "user authentication" do
       click_on 'Sign Up!'
 
       within('#new_user_form') do
-        save_and_open_page
         expect(page).to have_content 'Email'
         expect(page).to have_content 'Password'
         expect(page).to have_content 'Password Confirmation'
