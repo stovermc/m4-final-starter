@@ -1,0 +1,16 @@
+<h3>Create Your Account</h3>
+<div id="new_user_form">
+  <%= form_for @user do |f| %>
+    <%= render partial: "shared/errors", locals: { target: @user } %>
+    <%= f.label  :email%>
+    <%= f.text_field :email %>
+
+    <%= f.label  :password%>
+    <%= f.password_field :password %>
+
+    <%= f.label  :password_confirmation%>
+    <%= f.password_field :password_confirmation %>
+
+    <%= f.submit 'Create Account'%>
+  <% end %>
+</div>
