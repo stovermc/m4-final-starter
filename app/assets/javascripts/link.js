@@ -1,5 +1,22 @@
+//Document.ready
+$(document).ready(function() {
+  bindSubmitListener()
+})
+
+function clearErrors() {
+  $('.errors').empty()
+}
+
+function bindSubmitListener() {
+  $('#new-link').submit(function(event){
+    event.preventDefault()
+    debugger
+    addLink()
+  }
+}
+
 function addLink() {
-  event.preventDefault()
+  clearErrors()
   const linkData = {
         link: {
           url: $('#url').val(),
@@ -12,16 +29,8 @@ function addLink() {
     data: linkData
   })
   .done(function(newLinkMarkup){
-    console.log(newLinkMarkup)
-    $(".links-list").append(newLinkMarkup)
+    $("#link-list").append(newLinkMarkup)
     $('#url').val('')
     $('#title').val('')
   })
 }
-
-
-//Document.ready
-$(function() {
-  $('#create-link').on('click', addLink)
-
-})
