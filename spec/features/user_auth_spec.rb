@@ -26,12 +26,46 @@ describe "user authentication" do
     it "redirects to link index upon account creation" do
       visit new_user_path
 
-      fill_in 'Email', with: 'stovermc@gmail.com'
+      fill_in 'Email', with: 'test@gmail.com'
       fill_in 'Password', with: 'password'
       fill_in 'Password confirmation', with:'password'
       click_on 'Create Account'
 
       expect(current_path).to eq root_path
+      expect(page).to have_content 'Success! New Account Created.'
+    end
+
+    it "shows message when email is taken" do
+      user = FactoryGirl.create(:user)
+
+      visit new_user_path
+
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      fill_in 'Password confirmation', with: user.password
+      click_on 'Create Account'
+
+      expect(page).to have_content 'Email has already been taken'
+    end
+
+    it "shows message when password and password_confirmation do not match" do
+      visit new_user_path
+
+      fill_in 'Email', with: 'yolo@gmail.com'
+      fill_in 'Password', with: 'password'
+      fill_in 'Password confirmation', with: 'asdf'
+      click_on 'Create Account'
+
+      expect(page).to have_content "Password confirmation doesn't match Password"
+    end
+
+    it "password field cannot be blank" do
+      visit new_user_path
+
+      fill_in 'Email', with: 'yolo@gmail.com'
+      click_on 'Create Account'
+
+      expect(page).to have_content "Password can't be blank"
     end
   end
 end
