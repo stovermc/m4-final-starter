@@ -24,7 +24,7 @@ describe "user can add links from the homepage", js: true do
     within('#link-list') do
       expect(page).to have_content "http://turing.io"
       expect(page).to have_content "Turing"
-      expect(page).to have_content "Read: false"
+      expect(page).to have_content "Read?: false"
     end
   end
 

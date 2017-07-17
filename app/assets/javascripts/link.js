@@ -1,21 +1,21 @@
 //Document.ready
 $(document).ready(function() {
-  bindSubmitListener()
+  $('#create-link').on('click', addLink)
 })
 
 function clearErrors() {
   $('.errors').empty()
 }
 
-function bindSubmitListener() {
-  $('#new-link').submit(function(event){
-    event.preventDefault()
-    debugger
-    addLink()
-  }
-}
+// function bindSubmitListener() {
+//   $('#new-link').on('click', function(event){
+//     event.preventDefault()
+//     addLink()
+//   })
+// }
 
-function addLink() {
+function addLink(event) {
+  event.preventDefault()
   clearErrors()
   const linkData = {
         link: {
