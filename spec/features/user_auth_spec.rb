@@ -91,6 +91,18 @@ describe "user authentication" do
       expect(current_path).to eq root_path
     end
 
+    it "can't login with invalid credentials" do
+      user = FactoryGirl.create(:user)
+
+      visit root_path
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: 'wrong password'
+      click_on 'Log In'
+
+      expect(page).to have_content 'Invalid email or password'
+
+    end
+
     it "user can see logout button" do
       user = FactoryGirl.create(:user)
 
