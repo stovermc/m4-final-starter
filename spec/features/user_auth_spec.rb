@@ -90,5 +90,16 @@ describe "user authentication" do
 
       expect(current_path).to eq root_path
     end
+
+    it "user can see logout button" do
+      user = FactoryGirl.create(:user)
+
+      visit root_path
+      fill_in 'Email', with: user.email
+      fill_in 'Password', with: user.password
+      click_on 'Log In'
+
+      expect(page).to have_link('Sign Out')
+    end
   end
 end

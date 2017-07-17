@@ -9,8 +9,14 @@ class SessionsController < ApplicationController
       flash[:success] = "Successfully logged in!"
       redirect_to root_path
     else
+      flash[:error] = "Invalid email or password"
       render :new
     end
+  end
+
+  def destroy
+    session[:user_id] = nil
+    redirect_to login_path
   end
 
   private
