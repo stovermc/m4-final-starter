@@ -16,6 +16,21 @@ class LinksController < ApplicationController
     end
   end
 
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = current_user.links.find(params[:id])
+    if @link.update(link_params)
+      flash[:notice] = "Link has been updated."
+      redirect_to root_path
+    else
+      # render partial: "shared/errors", locals: { target: @link }, layout: false
+      render :edit
+    end
+  end
+
   private
     def link_params
       params.require(:link).permit(:url, :title)

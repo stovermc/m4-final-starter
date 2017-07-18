@@ -11,4 +11,7 @@
   <input type="submit" value="Save" id="create-link" class="btn">
 </div>
 <div id="link-list">
+  <% current_user.links.each do |link| %>
+  <%= render partial: 'shared/new_link', locals: {link: link}%>
+  <% end %>
 </div>

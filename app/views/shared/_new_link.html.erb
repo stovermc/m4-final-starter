@@ -4,5 +4,5 @@
     <%= link.url %>
     Read?: <%= link.read %>
   </p>
-  <%= link_to 'Edit', method: :put %>
+  <%= link_to 'Edit', edit_link_path(link), class: 'btn' %>
 </div>
