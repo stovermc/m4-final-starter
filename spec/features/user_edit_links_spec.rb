@@ -11,9 +11,7 @@ describe "user can update a link", js: true do
       click_link_or_button "Save"
     end
 
-    within('.link') do
-      click_on 'Edit'
-    end
+    click_on 'Edit'
 
     expect(current_path).to eq '/links/1/edit'
   end
@@ -27,9 +25,7 @@ describe "user can update a link", js: true do
       click_link_or_button "Save"
     end
 
-    within('.link') do
-      click_on 'Edit'
-    end
+    click_on 'Edit'
 
     fill_in 'Title', with: "School"
     click_on 'Save'
@@ -47,9 +43,7 @@ describe "user can update a link", js: true do
       click_link_or_button "Save"
     end
 
-    within('.link') do
-      click_on 'Edit'
-    end
+    click_on 'Edit'
 
     fill_in 'Url', with: "http://www.google.com"
     click_on 'Save'
@@ -67,9 +61,7 @@ describe "user can update a link", js: true do
       click_link_or_button "Save"
     end
 
-    within('.link') do
-      click_on 'Edit'
-    end
+    click_on 'Edit'
 
     fill_in 'Url', with: "google.com"
     click_on 'Save'
