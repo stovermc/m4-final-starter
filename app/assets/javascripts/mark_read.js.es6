@@ -30,7 +30,7 @@ function displayFailure(failureData){
 function sendToHotReads(url) {
   $.ajax({
     type: "POST",
-    url: "https://stover-hotreads.herokuapp.com/api/v1/links",
+    url: "http://localhost:3000/api/v1/links",
     data: { url: url }
   })
 }
