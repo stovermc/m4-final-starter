@@ -1,7 +1,7 @@
 <div class="user-options">
   <%= link_to 'Sign Out', logout_path, method: :delete %>
 </div>
-<h3>Create New Link</h3>
+<h4>Create New Link</h4>
 
 <div id="new-link">
   <label for="url">URL:</label>
@@ -10,6 +10,15 @@
   <input id="title" type="text">
   <input type="submit" value="Save" id="create-link" class="btn">
 </div>
+<div>
+</div>
+
+<h4>Filter By Title or URL</h4>
+<div id="filter">
+  <input type="text" id="link-filter" placeholder="Search">
+</div>
+
+<h4>All Links</h4>
 <table class="table" id="link-list">
   <thead>
     <tr>
