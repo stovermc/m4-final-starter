@@ -1,6 +1,7 @@
 $( document ).ready(function(){
   $("#link-filter").on("keyup", filterLinks)
   $('#filter-read').on('click', filterRead)
+  $('#filter-unread').on('click', filterUnread)
 })
 
 function filterLinks() {
@@ -21,6 +22,17 @@ function filterRead() {
   $('.link').each( function(index, link) {
     let readStatus = $(link).find('.read-status').text()
     if(readStatus.includes("true")) {
+      $(link).show()
+    } else {
+      $(link).hide()
+    }
+  })
+}
+
+function filterUnread() {
+  $('.link').each( function(index, link) {
+    let readStatus = $(link).find('.read-status').text()
+    if(readStatus.includes("false")) {
       $(link).show()
     } else {
       $(link).hide()

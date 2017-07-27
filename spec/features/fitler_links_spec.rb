@@ -75,4 +75,28 @@ RSpec.describe "can filter links", :js => :true do
       expect(page).to_not have_content("Google")
     end
   end
+
+  scenario "Unread button filters by links unread" do
+    login(user)
+
+    within('#new-link') do
+      fill_in "URL:", with: "http://turing.io"
+      fill_in "Title", with: "Turing"
+      click_link_or_button "Save"
+    end
+
+    click_on "Mark as Read"
+
+    within('#new-link') do
+      fill_in "URL:", with: "http://www.google.com"
+      fill_in "Title", with: "Google"
+      click_link_or_button "Save"
+    end
+
+    click_on 'Unread'
+
+    within('#link-list') do
+      expect(page).to_not have_content("Turing")
+    end
+  end
 end
