@@ -1,5 +1,6 @@
 $( document ).ready(function(){
   $("#link-filter").on("keyup", filterLinks)
+  $('#filter-read').on('click', filterRead)
 })
 
 function filterLinks() {
@@ -16,20 +17,13 @@ function filterLinks() {
   }
 }
 
-
-// function searchFoods() {
-//   $('input[name="food-filter"]').keyup(function() {
-//     const filterParam = $('input[name="food-filter"]').val()
-//     const filtered = filterParam.toUpperCase()
-//     const foodRows = document.getElementsByClassName('name')
-//
-//     for (var i = 0; i < foodRows.length; i++) {
-//       var foodName = foodRows[i].innerText
-//       if (foodName.toUpperCase().indexOf(filtered) < 0) {
-//         foodRows[i].parentElement.parentElement.style.display = "none"
-//       } else {
-//         foodRows[i].parentElement.parentElement.style.display = ""
-//       }
-//     }
-//   })
-// }
+function filterRead() {
+  $('.link').each( function(index, link) {
+    let readStatus = $(link).find('.read-status').text()
+    if(readStatus.includes("true")) {
+      $(link).show()
+    } else {
+      $(link).hide()
+    }
+  })
+}
