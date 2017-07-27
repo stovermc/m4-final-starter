@@ -10,8 +10,17 @@
   <input id="title" type="text">
   <input type="submit" value="Save" id="create-link" class="btn">
 </div>
-<div id="link-list">
-  <% current_user.links.each do |link| %>
-  <%= render partial: 'shared/new_link', locals: {link: link}%>
-  <% end %>
-</div>
+<table class="table" id="link-list">
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>URL</th>
+      <th>Read</th>
+    </tr>
+  </thead>
+  <tbody class='links'>
+    <% current_user.links.each do |link| %>
+      <%= render partial: 'shared/new_link', locals: {link: link}%>
+    <% end %>
+  </tbody>
+</table>
