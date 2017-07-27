@@ -33,6 +33,6 @@ function sendToHotReads(link) {
     type: "POST",
     url: "https://stover-hotreads.herokuapp.com/api/v1/links/",
     data: { link },
-  }).fail(displayFailure);
-}
+  })
+  .fail(displayFailure);
 }
