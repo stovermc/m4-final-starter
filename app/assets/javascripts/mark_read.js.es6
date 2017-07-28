@@ -32,5 +32,5 @@ function sendToHotReads(url) {
     type: "POST",
     url: 'https://stover-hotreads.herokuapp.com/api/v1/links',
     data: { url: url }
-  })
+  }).fail(displayFailure);
 }
