@@ -18,7 +18,7 @@ Production site: https://stover-m4-final.herokuapp.com/
 ### API
 This application has one api endpoint:
 
-PUT `/api/v1/links` this endpoint takes two parameters; a valid url including http/https, and a title for the new link.
+PUT `/api/v1/links` this endpoint takes two parameters; a valid url including http/https, and a tittle for the new link.
 
 ### HOT Reads connection
 
