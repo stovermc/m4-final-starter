@@ -22,7 +22,7 @@ PUT `/api/v1/links` this endpoint takes two parameters; a valid url including ht
 
 ### HOT Reads connection
 
-This application works in tandem with the Hot Reads application. Hot Reads are identified but the links marded read by users of this application.
+This application works in tandem with the Hot Reads application. Hot Reads are identified by the links that have been marked as read by users of this application.
 
 Hot Reads repo: https://github.com/stovermc/hot-reads
 Hot Reads Production Site: https://stover-hotreads.herokuapp.com/
