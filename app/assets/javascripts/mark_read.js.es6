@@ -32,5 +32,30 @@ function sendToHotReads(url) {
     type: "POST",
     url: 'https://stover-hotreads.herokuapp.com/api/v1/links',
     data: { url: url }
-  }).fail(displayFailure);
+  }).done(updateTopTen)
+    .fail(displayFailure);
+}
+
+function updateTopTen(data) {
+  var hot_reads = getHotReads(data)
+  $('tr').each(function(index, link) {
+    let linkURL = $(this).children()[1].innerHTML
+    if (hot_reads.includes(linkURL)) {
+      $(link).find('.hot').remove()
+      $(link).find('#title').prepend('<td class="hot">HOT!</td>')
+    } else {
+      $(link).find('.hot').remove()
+    }
+    if (linkURL == hot_reads[0]) {
+      $(link).find('.hot').text('HOTTEST!')
+    }
+  })
+}
+
+function getHotReads(returnedHotReads) {
+  var urls = []
+  returnedHotReads.forEach(function(hotRead) {
+    urls.push(hotRead.url)
+  })
+  return urls
 }
